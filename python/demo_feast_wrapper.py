@@ -1,5 +1,5 @@
 #!/usr/bin/env python 
-
+import feast
 import numpy as np
 
 ##################################################################
@@ -34,7 +34,7 @@ data, labels = read_digits('digit.txt')
 n_observations = len(data)					# number of samples in the data set
 n_features = len(data.transpose())	# number of features in the data set
 n_select = 15												# how many features to select
-method = 'jmi'											# feature selection algorithm
+method = 'JMI'											# feature selection algorithm
 
 
 print '---> Information'
@@ -43,7 +43,5 @@ print '     :n_features     - ' + str(n_features)
 print '     :n_select       - ' + str(n_select)
 print '     :algorithm      - ' + str(method)
 
+selected_features = feast.select(data, labels, n_observations, n_features, n_select, method)
 
-# Calvin: feature selection wrapper goes here
-#selected_features = feast(data, labels, n_observations, n_features, n_select, \
-#	method)
