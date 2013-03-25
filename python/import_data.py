@@ -14,6 +14,7 @@ def read_digits(fname='digit.txt'):
 		label appended. 
 	'''
 	import csv
+	import numpy as np
 
 	fw = csv.reader(open(fname,'rb'), delimiter='\t')
 	data = []
@@ -34,6 +35,23 @@ def read_digits(fname='digit.txt'):
 ##################################################################
 def uniform_data(n_observations = 1000, n_features = 50, n_relevant = 5):
 	import numpy as np
+	xmax = 10
+	xmin = 0
+	data = np.random.randint(xmax + 1, size = (n_features, n_observations))
+	labels = np.zeros(n_observations)
+	delta = n_relevant * (xmax - xmin) / 2.0
+
+	for m in range(n_observations):
+		zz = 0.0
+		for k in range(n_relevant):
+			zz += data[k, m]
+		if zz > delta:
+			labels[m] = 1
+		else:
+			labels[m] = 2
+	data = data.transpose()
+	
+	return data, labels
 
 ##################################################################
 ##################################################################
