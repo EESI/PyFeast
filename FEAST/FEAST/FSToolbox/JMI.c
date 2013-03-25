@@ -156,6 +156,7 @@ void JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double
   
   for (i = 0; i < k; i++)
   {
+    printf("%f\n", outputFeatures[i]);
     outputFeatures[i] += 1; /*C indexes from 0 not 1*/
   }/*for number of selected features*/
 
