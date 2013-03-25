@@ -53,7 +53,7 @@
 #include "Entropy.h"
 #include "ArrayOperations.h"
 
-void DISR(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
+double* DISR(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
 {
   /*holds the class MI values*/
   double *classMI = (double *)CALLOC_FUNC(noOfFeatures,sizeof(double));
@@ -177,5 +177,6 @@ void DISR(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, doubl
   featureMIMatrix = NULL;
   selectedFeatures = NULL;
   
+  return outputFeatures;
 }/*DISR(int,int,int,double[][],double[],double[])*/
 

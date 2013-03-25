@@ -51,7 +51,7 @@
 /* MIToolbox includes */
 #include "MutualInformation.h"
 
-void ICAP(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
+double* ICAP(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
 {
     /*holds the class MI values*/
     double *classMI = (double *)CALLOC_FUNC(noOfFeatures,sizeof(double));
@@ -178,5 +178,7 @@ void ICAP(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, doubl
   featureMIMatrix = NULL;
   featureCMIMatrix = NULL;
   selectedFeatures = NULL;
+
+  return outputFeatures;
 }/*ICAP(int,int,int,double[][],double[],double[])*/
 

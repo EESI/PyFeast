@@ -52,7 +52,7 @@
 #include "MutualInformation.h"
 #include "ArrayOperations.h"
 
-void JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
+double* JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
 {
   /*holds the class MI values*/
   double *classMI = (double *)CALLOC_FUNC(noOfFeatures,sizeof(double));
@@ -156,7 +156,6 @@ void JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double
   
   for (i = 0; i < k; i++)
   {
-    printf("%f\n", outputFeatures[i]);
     outputFeatures[i] += 1; /*C indexes from 0 not 1*/
   }/*for number of selected features*/
 
@@ -171,6 +170,8 @@ void JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double
   featureMIMatrix = NULL;
   mergedVector = NULL;
   selectedFeatures = NULL;
+  
+  return outputFeatures;
   
 }/*JMI(int,int,int,double[][],double[],double[])*/
 

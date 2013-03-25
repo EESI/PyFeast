@@ -76,7 +76,7 @@
 ** "Feature Selection Based on Mutual Information: Criteria of Max-Dependency, Max-Relevance, and Min-Redundancy"
 ** H. Peng et al. IEEE Pattern Analysis and Machine Intelligence (PAMI) (2005)
 *******************************************************************************/
-void mRMR_D(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
+double* mRMR_D(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
 
 /*******************************************************************************
 ** CMIM() implements a discrete version of the 
@@ -86,7 +86,7 @@ void mRMR_D(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, dou
 ** "Fast Binary Feature Selection using Conditional Mutual Information Maximisation"
 ** F. Fleuret, JMLR (2004)
 *******************************************************************************/
-void CMIM(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
+double* CMIM(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
 
 /*******************************************************************************
 ** JMI() implements the JMI criterion from
@@ -94,7 +94,7 @@ void CMIM(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, doubl
 ** "Data Visualization and Feature Selection: New Algorithms for Nongaussian Data"
 ** H. Yang and J. Moody, NIPS (1999)
 *******************************************************************************/
-void JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
+double* JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
 
 /*******************************************************************************
 ** DISR() implements the Double Input Symmetrical Relevance criterion
@@ -103,7 +103,7 @@ void JMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double
 ** "On the Use of Variable Complementarity for Feature Selection in Cancer Classification"
 ** P. Meyer and G. Bontempi, (2006)
 *******************************************************************************/
-void DISR(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
+double* DISR(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
 
 /*******************************************************************************
 ** ICAP() implements the Interaction Capping criterion from 
@@ -111,12 +111,12 @@ void DISR(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, doubl
 ** "Machine Learning Based on Attribute Interactions"
 ** A. Jakulin, PhD Thesis (2005)
 *******************************************************************************/
-void ICAP(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
+double* ICAP(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
 
 /*******************************************************************************
 ** CondMI() implements the CMI criterion using a greedy forward search
 *******************************************************************************/
-void CondMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
+double* CondMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures);
 
 /*******************************************************************************
 ** betaGamma() implements the Beta-Gamma space from Brown (2009).
@@ -133,6 +133,6 @@ void CondMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, dou
 ** G. Brown, A. Pocock, M.-J. Zhao, M. Lujan
 ** Journal of Machine Learning Research (JMLR), 2011
 *******************************************************************************/
-void BetaGamma(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures, double beta, double gamma);
+double* BetaGamma(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures, double beta, double gamma);
 
 #endif

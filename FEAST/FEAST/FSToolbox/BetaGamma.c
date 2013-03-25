@@ -57,7 +57,7 @@
 /* MIToolbox includes */
 #include "MutualInformation.h"
 
-void BetaGamma(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures, double betaParam, double gammaParam)
+double* BetaGamma(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures, double betaParam, double gammaParam)
 {
     double **feature2D = (double **) CALLOC_FUNC(noOfFeatures,sizeof(double *));
     
@@ -183,5 +183,6 @@ void BetaGamma(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, 
         outputFeatures[i] += 1; /*C++ indexes from 0 not 1*/
     }/*for number of selected features*/
     
+    return outputFeatures;
 }/*BetaGamma(int,int,int,double[][],double[],double[],double,double)*/
 

@@ -52,7 +52,7 @@
 #include "MutualInformation.h"
 #include "ArrayOperations.h"
 
-void CondMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
+double* CondMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, double *classColumn, double *outputFeatures)
 {
   /*holds the class MI values*/
   double *classMI = (double *)CALLOC_FUNC(noOfFeatures,sizeof(double));
@@ -160,5 +160,7 @@ void CondMI(int k, int noOfSamples, int noOfFeatures, double *featureMatrix, dou
   feature2D = NULL;
   featureMIMatrix = NULL;
   selectedFeatures = NULL;
+  
+  return outputFeatures;
 }/*CondMI(int,int,int,double[][],double[],double[])*/
 
