@@ -14,6 +14,7 @@ if data_source == 'uniform':
 elif data_source == 'digits':
 	data, labels = import_data.read_digits('digit.txt')
 
+print data
 
 
 n_observations = len(data)					# number of samples in the data set
@@ -28,5 +29,6 @@ print '     :n_features     - ' + str(n_features)
 print '     :n_select       - ' + str(n_select)
 print '     :algorithm      - ' + str(method)
 
-selected_features = feast.select(data, labels, n_observations, n_features, n_select, method)
+selected_features = feast.JMI(data, labels, n_select)
 
+print selected_features
