@@ -36,6 +36,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+PREFIX = /usr
 CXXFLAGS = -O3 -fPIC
 COMPILER = gcc
 MITOOLBOXPATH = ../MIToolbox/
@@ -94,3 +95,8 @@ clean:
 	rm *.o 
 	rm libFSToolbox.so
 
+.PHONY : install
+install:
+	$(MAKE)
+	@echo "installing libFSToolbox.so to $(PREFIX)/lib"
+	cp -v libFSToolbox.so $(PREFIX)/lib

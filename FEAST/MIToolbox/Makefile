@@ -21,6 +21,7 @@
 #You should have received a copy of the GNU Lesser General Public License
 #along with MIToolbox.  If not, see <http://www.gnu.org/licenses/>.
 
+PREFIX = /usr
 CXXFLAGS = -O3 -fPIC
 COMPILER = gcc
 objects = ArrayOperations.o CalculateProbability.o Entropy.o \
@@ -80,5 +81,11 @@ intel:
 
 .PHONY : clean
 clean:
-	rm *.o libMIToolbox.so
+	@rm -v *.o libMIToolbox.so
+
+.PHONY : install
+install:
+	$(MAKE)
+	@echo "installing libMIToolbox.so to $(PREFIX)/lib"
+	@cp -v libMIToolbox.so $(PREFIX)/lib
 
