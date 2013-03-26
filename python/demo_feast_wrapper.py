@@ -7,7 +7,7 @@ import import_data
 def check_result(selected_features, n_relevant):
 	selected_features = sorted(selected_features)
 	success = True
-	for k in range(n_select):
+	for k in range(n_relevant):
 		if k != selected_features[k]:
 			success = False
 	return success
