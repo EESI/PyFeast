@@ -4,7 +4,7 @@ import numpy as np
 import import_data 
 
 
-def check_result(selected_features, n_select):
+def check_result(selected_features, n_relevant):
 	selected_features = sorted(selected_features)
 	success = True
 	for k in range(n_select):
@@ -14,12 +14,12 @@ def check_result(selected_features, n_select):
 
 
 
-
+n_relevant = 5
 data_source = 'uniform'    # set the data set we want to test
 
 
 if data_source == 'uniform':
-	data, labels = import_data.uniform_data()
+	data, labels = import_data.uniform_data(n_relevant = n_relevant)
 elif data_source == 'digits':
 	data, labels = import_data.read_digits('digit.txt')
 
@@ -42,7 +42,7 @@ print '---> Running unit tests on FEAST 4 Python... '
 #################################################################
 print '       Running BetaGamma... '
 sf = BetaGamma(data, labels, n_select, beta=0.5, gamma=0.5)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          BetaGamma passed!'
 else:
 	print '          BetaGamma failed!'
@@ -52,7 +52,7 @@ else:
 #################################################################
 print '       Running CMIM... '
 sf = CMIM(data, labels, n_select)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          CMIM passed!'
 else:
 	print '          CMIM failed!'
@@ -62,7 +62,7 @@ else:
 #################################################################
 print '       Running CondMI... '
 sf = CondMI(data, labels, n_select)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          CondMI passed!'
 else:
 	print '          CondMI failed!'
@@ -72,7 +72,7 @@ else:
 #################################################################
 print '       Running DISR... '
 sf = DISR(data, labels, n_select)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          DISR passed!'
 else:
 	print '          DISR failed!'
@@ -82,7 +82,7 @@ else:
 #################################################################
 print '       Running ICAP... '
 sf = ICAP(data, labels, n_select)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          ICAP passed!'
 else:
 	print '          ICAP failed!'
@@ -92,7 +92,7 @@ else:
 #################################################################
 print '       Running JMI... '
 sf = JMI(data, labels, n_select)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          JMI passed!'
 else:
 	print '          JMI failed!'
@@ -102,7 +102,7 @@ else:
 #################################################################
 print '       Running mRMR... '
 sf = mRMR(data, labels, n_select)
-if check_result(sf) == True:
+if check_result(sf, n_relevant) == True:
 	print '          mRMR passed!'
 else:
 	print '          mRMR failed!'
