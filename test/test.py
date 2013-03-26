@@ -1,7 +1,6 @@
 #!/usr/bin/env python 
 from feast import *
 import numpy as np
-import import_data 
 
 
 def check_result(selected_features, n_relevant):
