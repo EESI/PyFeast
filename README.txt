@@ -1,9 +1,8 @@
-
+====
+PyFeast
 ====
 Python Interface to the FEAST Feature Selection Toolbox
-====
 
-====
 About
 ====
 This set of scripts provides an interface to the FEAST feature selection
@@ -12,14 +11,12 @@ toolbox, originally written in C with a Mex interface to Matlab. Python
 face to all the functionality of the FEAST implementation that was provided
 with the original Matlab interface. 
 
-====
 Demonstration
 ====
 See demo_feast_wrapper.py for an example with uniform data and an image
 data set. The image data set was collected from the digits example in 
 the Scikits-Learn toolbox.
 
-====
 To Do
 ====
 1) Add a setup.py script that can manage the build and installation of the
