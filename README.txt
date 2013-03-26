@@ -11,9 +11,32 @@ toolbox, originally written in C with a Mex interface to Matlab. Python
 face to all the functionality of the FEAST implementation that was provided
 with the original Matlab interface. 
 
+Installation
+====
+To install the FEAST interface, you'll need to build and install the libraries 
+first, and then install python.
+
+Make MIToolbox and install it:
+
+$ cd FEAST/MIToolbox
+$ make
+$ sudo make install
+
+Make FSToolbox and install it:
+
+$ cd FEAST/FSToolbox
+$ make
+$ sudo make install
+
+Install our PyFeast module
+
+$ python ./setup.py build
+$ sudo python ./setup.py install
+
+
 Demonstration
 ====
-See demo_feast_wrapper.py for an example with uniform data and an image
+See test/test.py for an example with uniform data and an image
 data set. The image data set was collected from the digits example in 
 the Scikits-Learn toolbox.
 
