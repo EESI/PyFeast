@@ -1,7 +1,3 @@
-import numpy as np
-from ctypes import * 
-
-
 '''
   The FEAST module provides an interface between the C-library
   for feature selection to Python. 
@@ -22,10 +18,8 @@ from ctypes import *
   __email__ = "mutantturkey@gmail.com"
   __status__ = "Release"
 '''
-
-# I listed the function definitions in alphabetical order. Lets
-# keep this up. 
-
+import numpy as np
+from ctypes import * 
 
 try:
   libFSToolbox = CDLL("libFSToolbox.so"); 
