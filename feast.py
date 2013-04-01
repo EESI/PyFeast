@@ -37,11 +37,6 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
     weight attached to the redundant mutual and conditional
     mutual information, respectively. 
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool. 
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -59,9 +54,6 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
-
 
   # python values
   n_observations, n_features = data.shape
@@ -104,11 +96,6 @@ def CIFE(data, labels, n_select):
     This function implements the Condred feature selection algorithm.
     beta = 1; gamma = 1;
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -122,9 +109,7 @@ def CIFE(data, labels, n_select):
       :selected_features - returns a list containing the features
         in the order they were selected. 
   '''
-  data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
+
   return BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0)
 
 
@@ -139,11 +124,6 @@ def CMIM(data, labels, n_select):
     implementation does not allow for the weighting of the 
     redundancy terms that BetaGamma will allow you to do.
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool. 
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -158,8 +138,6 @@ def CMIM(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   # python values
   n_observations, n_features = data.shape
@@ -199,11 +177,6 @@ def CondMI(data, labels, n_select):
     This function implements the conditional mutual information
     maximization feature selection algorithm. 
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -218,8 +191,6 @@ def CondMI(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   # python values
   n_observations, n_features = data.shape
@@ -258,11 +229,6 @@ def Condred(data, labels, n_select):
     This function implements the Condred feature selection algorithm.
     beta = 0; gamma = 1;
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -277,8 +243,6 @@ def Condred(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   return BetaGamma(data, labels, n_select, beta=0.0, gamma=1.0)
 
@@ -291,11 +255,6 @@ def DISR(data, labels, n_select):
     This function implements the double input symmetrical relevance
     feature selection algorithm. 
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -310,8 +269,6 @@ def DISR(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   # python values
   n_observations, n_features = data.shape
@@ -352,11 +309,6 @@ def ICAP(data, labels, n_select):
     This function implements the interaction capping feature 
     selection algorithm. 
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -371,8 +323,6 @@ def ICAP(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   # python values
   n_observations, n_features = data.shape
@@ -414,11 +364,6 @@ def JMI(data, labels, n_select):
     This function implements the joint mutual information feature
     selection algorithm. 
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -433,8 +378,6 @@ def JMI(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   # python values
   n_observations, n_features = data.shape
@@ -474,11 +417,6 @@ def MIFS(data, labels, n_select):
     This function implements the MIFS algorithm.
     beta = 1; gamma = 0;
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -492,9 +430,6 @@ def MIFS(data, labels, n_select):
       :selected_features - returns a list containing the features
         in the order they were selected. 
   '''
-  data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   return BetaGamma(data, labels, n_select, beta=0.0, gamma=0.0)
 
@@ -506,11 +441,6 @@ def MIM(data, labels, n_select):
     This function implements the MIM algorithm.
     beta = 0; gamma = 0;
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -525,8 +455,6 @@ def MIM(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
 
   return BetaGamma(data, labels, n_select, beta=0.0, gamma=0.0)
 
@@ -539,11 +467,6 @@ def mRMR(data, labels, n_select):
     This funciton implements the max-relevance min-redundancy feature
     selection algorithm. 
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
-
     Input 
       :data - data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
@@ -558,9 +481,6 @@ def mRMR(data, labels, n_select):
         in the order they were selected. 
   '''
   data, labels = check_data(data, labels)
-  if data == None or labels == None:
-    return None
-
 
   # python values
   n_observations, n_features = data.shape
@@ -591,21 +511,15 @@ def mRMR(data, labels, n_select):
 
   return selected_features
 
-
-
-
-
-
-
-
 def check_data(data, labels):
   '''
     check_data(data, labels)
 
-    The return type is none if there is an error with the 
-    dimensions of the data and/or labels. All data are
-    automatically cast as doubles before calling the feature
-    selection tool.
+    Check dimensions of the data and the labels.  Raise and exception
+    if there is a problem.
+
+    Data and Labels are automatically cast as doubles before calling the 
+    feature selection functions
 
     Input
       :data
@@ -614,8 +528,14 @@ def check_data(data, labels):
       :data
       :labels
   '''
+
+  if isinstance(data, np.ndarray) is False:
+    raise Exception("data must be an numpy ndarray.")
+  if isinstance(labels, np.ndarray) is False:
+    raise Exception("labels must be an numpy ndarray.")
+
   if len(data) != len(labels):
-    return None, None
+    raise Exception("data and labels must be the same length")
   
   return 1.0*data, 1.0*labels
 
