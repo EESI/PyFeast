@@ -8,16 +8,16 @@
       theoretic feature selection," Journal of Machine Learning 
       Research, vol. 13, pp. 27-66, 2012.
 
-
-  __author__ = "Calvin Morrison"
-  __copyright__ = "Copyright 2013, EESI Laboratory"
-  __credits__ = ["Calvin Morrison", "Gregory Ditzler"]
-  __license__ = "GPL"
-  __version__ = "0.1.0"
-  __maintainer__ = "Calvin Morrison"
-  __email__ = "mutantturkey@gmail.com"
-  __status__ = "Release"
 '''
+__author__ = "Calvin Morrison"
+__copyright__ = "Copyright 2013, EESI Laboratory"
+__credits__ = ["Calvin Morrison", "Gregory Ditzler"]
+__license__ = "GPL"
+__version__ = "0.2.0"
+__maintainer__ = "Calvin Morrison"
+__email__ = "mutantturkey@gmail.com"
+__status__ = "Release"
+
 import numpy as np
 from ctypes import * 
 
@@ -538,6 +538,3 @@ def check_data(data, labels):
     raise Exception("data and labels must be the same length")
   
   return 1.0*data, 1.0*labels
-
-
-
