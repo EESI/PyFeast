@@ -1,6 +1,7 @@
 #!/usr/bin/env python 
 from feast import *
 import numpy as np
+import csv
 
 
 def check_result(selected_features, n_relevant):
@@ -19,8 +20,6 @@ def read_digits(fname='digit.txt'):
 		each row of the file is a feature vector with the class 
 		label appended. 
 	'''
-	import csv
-	import numpy as np
 
 	fw = csv.reader(open(fname,'rb'), delimiter='\t')
 	data = []
@@ -60,9 +59,9 @@ data_source = 'uniform'    # set the data set we want to test
 
 
 if data_source == 'uniform':
-	data, labels = import_data.uniform_data(n_relevant = n_relevant)
+	data, labels = uniform_data(n_relevant = n_relevant)
 elif data_source == 'digits':
-	data, labels = import_data.read_digits('digit.txt')
+	data, labels = read_digits('digit.txt')
 
 n_observations = len(data)					# number of samples in the data set
 n_features = len(data.transpose())	# number of features in the data set
