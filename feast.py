@@ -24,8 +24,7 @@ from ctypes import *
 try:
   libFSToolbox = CDLL("libFSToolbox.so"); 
 except:
-  print "Error: could not find libFSToolbox"
-  exit()
+  raise Exception("Error: could not load libFSToolbox.so")
 
 
 def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):

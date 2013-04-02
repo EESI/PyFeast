@@ -39,12 +39,3 @@ Demonstration
 See test/test.py for an example with uniform data and an image
 data set. The image data set was collected from the digits example in 
 the Scikits-Learn toolbox.
-
-To Do
-====
-1) Add a setup.py script that can manage the build and installation of the
-   Python interface to FEAST. 
-2) Add in the rest of the functionality to feast.py. Add subsequent 
-   functionality into the demo. 
-3) Integrate the module into KBase!
-4) Clean up the paths
