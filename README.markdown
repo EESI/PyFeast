@@ -11,7 +11,7 @@ Because Python is also commonly used in computational science, writing bindings
 to enable researchers to utilize these feature selection algorthms in Python 
 was only natural.
 
-At Drexel University's EESI Lab (link), we are using PyFeast to create a feature
+At Drexel University's [EESI Lab](http://www.ece.drexel.edu/gailr/EESI/), we are using PyFeast to create a feature
 selection tool for the Department of Energy's upcoming KBase platform.
 
  
