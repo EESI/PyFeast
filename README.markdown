@@ -38,11 +38,14 @@ Make FSToolbox and install it:
     make
     sudo make install
 
+Run ldconfig to update your library cache
+    
+    sudo ldconfig
+
 Install our PyFeast module
 
     python ./setup.py build
     sudo python ./setup.py install
-
 
 ## Demonstration
 See test/test.py for an example with uniform data and an image
