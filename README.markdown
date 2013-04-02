@@ -28,20 +28,20 @@ first, and then install python.
 
 Make MIToolbox and install it:
 
-        cd FEAST/MIToolbox
-        make
-        sudo make install
+    cd FEAST/MIToolbox
+    make
+    sudo make install
 
 Make FSToolbox and install it:
 
-        cd FEAST/FSToolbox
-        make
-        sudo make install
+    cd FEAST/FSToolbox
+    make
+    sudo make install
 
 Install our PyFeast module
 
-        python ./setup.py build
-        sudo python ./setup.py install
+    python ./setup.py build
+    sudo python ./setup.py install
 
 
 ## Demonstration
