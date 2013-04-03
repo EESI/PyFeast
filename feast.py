@@ -31,7 +31,7 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
   '''
     BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0)
 
-    This algotihm implements conditional mutual information 
+    This algorithm implements conditional mutual information 
     feature select, such that beta and gamma control the 
     weight attached to the redundant mutual and conditional
     mutual information, respectively. 
