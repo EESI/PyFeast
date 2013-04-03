@@ -1,5 +1,5 @@
 # PyFeast
-Python bindings to the FEAST Feature Selection Toolbox.
+Python bindings to the FEAST Feature Selection Toolbox..
 
 ## About PyFeast
 PyFeast is a interface for the FEAST feature selection toolbox, which was
