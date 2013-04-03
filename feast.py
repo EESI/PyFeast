@@ -19,10 +19,10 @@ __email__ = "mutantturkey@gmail.com"
 __status__ = "Release"
 
 import numpy as np
-from ctypes import * 
+import ctypes as c
 
 try:
-  libFSToolbox = CDLL("libFSToolbox.so"); 
+  libFSToolbox = c.CDLL("libFSToolbox.so"); 
 except:
   raise Exception("Error: could not load libFSToolbox.so")
 
@@ -59,19 +59,19 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
-  c_beta = c_double(beta)
-  c_gamma = c_double(gamma)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
+  c_beta = c.c_double(beta)
+  c_gamma = c.c_double(gamma)
 
-  libFSToolbox.BetaGamma.restype = POINTER(c_double * n_select)
+  libFSToolbox.BetaGamma.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.BetaGamma(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double)),
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double)),
                    c_beta,
                    c_gamma
                    )
@@ -143,17 +143,17 @@ def CMIM(data, labels, n_select):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
-  libFSToolbox.CMIM.restype = POINTER(c_double * n_select)
+  libFSToolbox.CMIM.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.CMIM(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double))
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
   
@@ -196,17 +196,17 @@ def CondMI(data, labels, n_select):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
-  libFSToolbox.CondMI.restype = POINTER(c_double * n_select)
+  libFSToolbox.CondMI.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.CondMI(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double))
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
   
@@ -274,17 +274,17 @@ def DISR(data, labels, n_select):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
-  libFSToolbox.DISR.restype = POINTER(c_double * n_select)
+  libFSToolbox.DISR.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.DISR(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double))
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
   
@@ -328,17 +328,17 @@ def ICAP(data, labels, n_select):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
-  libFSToolbox.ICAP.restype = POINTER(c_double * n_select)
+  libFSToolbox.ICAP.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.ICAP(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double))
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
   
@@ -383,17 +383,17 @@ def JMI(data, labels, n_select):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
-  libFSToolbox.JMI.restype = POINTER(c_double * n_select)
+  libFSToolbox.JMI.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.JMI(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double))
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
   
@@ -486,17 +486,17 @@ def mRMR(data, labels, n_select):
   output = np.zeros(n_select)
 
   # cast as C types
-  c_n_observations = c_int(n_observations)
-  c_n_select = c_int(n_select)
-  c_n_features = c_int(n_features)
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
-  libFSToolbox.mRMR_D.restype = POINTER(c_double * n_select)
+  libFSToolbox.mRMR_D.restype = c.POINTER(c.c_double * n_select)
   features = libFSToolbox.mRMR_D(c_n_select,
                    c_n_observations,
                    c_n_features, 
-                   data.ctypes.data_as(POINTER(c_double)),
-                   labels.ctypes.data_as(POINTER(c_double)),
-                   output.ctypes.data_as(POINTER(c_double))
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
   
