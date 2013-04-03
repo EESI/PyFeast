@@ -1,20 +1,17 @@
 # PyFeast
-
-Python bindings to the FEAST Feature Selection Toolbox
+Python bindings to the FEAST Feature Selection Toolbox.
 
 ## About PyFeast
-
 PyFeast is a interface for the FEAST feature selection toolbox, which was
-originally written in C with a interface to matlab.
+originally written in C with a interface to Matlab.
 
 Because Python is also commonly used in computational science, writing bindings 
-to enable researchers to utilize these feature selection algorthms in Python 
+to enable researchers to utilize these feature selection algorithms in Python 
 was only natural.
 
 At Drexel University's [EESI Lab](http://www.ece.drexel.edu/gailr/EESI/), we are using PyFeast to create a feature
 selection tool for the Department of Energy's upcoming KBase platform.
 
- 
 ## Requirements
 In order to use the feast module, you will need the following dependencies
 
@@ -23,8 +20,8 @@ In order to use the feast module, you will need the following dependencies
 * Linux or OS X 
 
 ## Installation
-To install the FEAST interface, you'll need to build and install the libraries 
-first, and then install python.
+To install the FEAST interface, you'll need to build and install the FEAST
+libraries first, and then install python.
 
 Make MIToolbox and install it:
 
@@ -38,11 +35,11 @@ Make FSToolbox and install it:
     make
     sudo make install
 
-Run ldconfig to update your library cache
+Run ldconfig to update your library cache:
     
     sudo ldconfig
 
-Install our PyFeast module
+Install our PyFeast module:
 
     python ./setup.py build
     sudo python ./setup.py install
