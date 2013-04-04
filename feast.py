@@ -92,23 +92,21 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
 
 def CIFE(data, labels, n_select):
   '''
-    CIFE(data, labels, n_select)
-
     This function implements the Condred feature selection algorithm.
     beta = 1; gamma = 1;
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: A Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
+    @type labels: ndarray
+    @param n_select:  number of features to select.
+    @type n_select: integer
+    @return selected_features: returns a list containing the features
         in the order they were selected. 
+    @return type: ndarray
   '''
 
   return BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0)
