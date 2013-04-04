@@ -29,28 +29,30 @@ except:
 
 def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
   '''
-    BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0)
-
     This algorithm implements conditional mutual information 
     feature select, such that beta and gamma control the 
     weight attached to the redundant mutual and conditional
     mutual information, respectively. 
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+      @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
         (REQUIRED)
-      :labels - labels represented in a numpy list with 
+      @type data: ndarray
+      @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
         (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-      :beta - penalty attacted to I(X_j;X_k) 
-      :gamma - positive weight attached to the conditional
+      @type labels: ndarray
+      @param n_select: number of features to select. (REQUIRED)
+      @type n_select: integer
+      @param beta: penalty attacted to I(X_j;X_k) 
+      @type beta: float between 0 and 1.0 
+      @param gamma: positive weight attached to the conditional
         redundancy term I(X_k;X_j|Y)
-    Output 
-      :selected_features - returns a list containing the features
+      @type gamma: float between 0 and 1.0 
+      @return:selected_features - returns a list containing the features
         in the order they were selected. 
+      @rtype: ndarray
   '''
   data, labels = check_data(data, labels)
 
