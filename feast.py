@@ -50,9 +50,8 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
       @param gamma: positive weight attached to the conditional
         redundancy term I(X_k;X_j|Y)
       @type gamma: float between 0 and 1.0 
-      @return:selected_features - returns a list containing the features
-        in the order they were selected. 
-      @rtype: ndarray
+      @return: features in the order they were selected. 
+      @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -104,9 +103,8 @@ def CIFE(data, labels, n_select):
     @type labels: ndarray
     @param n_select:  number of features to select.
     @type n_select: integer
-    @return selected_features: returns a list containing the features
-        in the order they were selected. 
-    @rtype: ndarray
+    @return selected_features: features in the order they were selected. 
+    @rtype: list
   '''
 
   return BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0)
@@ -130,9 +128,8 @@ def CMIM(data, labels, n_select):
     @type labels: ndarray
     @param n_select: number of features to select.
     @type n_select: integer
-    @return selected_features: A list containing the features
-        in the order that they were selected. 
-    @rtype: ndarray
+    @return: features in the order that they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -169,23 +166,20 @@ def CMIM(data, labels, n_select):
 
 def CondMI(data, labels, n_select):
   '''
-    CondMI(data, labels, n_select)
-
     This function implements the conditional mutual information
     maximization feature selection algorithm. 
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
-        n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
-        n_observations as the number of elements. That is 
-        len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @param data: data in a Numpy array such that len(data) = n_observations,
+       and len(data.transpose()) = n_features
+    @type data: ndarray
+    @param labels: represented in a numpy list with 
+      n_observations as the number of elements. That is 
+      len(labels) = len(data) = n_observations.
+    @type labels: ndarray
+    @param n_select: number of features to select.
+    @type n_select: integer
+    @return: features in the order they were selected. 
+    @rtype list
   '''
   data, labels = check_data(data, labels)
 
@@ -221,23 +215,20 @@ def CondMI(data, labels, n_select):
 
 def Condred(data, labels, n_select):
   '''
-    Condred(data, labels, n_select)
-
     This function implements the Condred feature selection algorithm.
     beta = 0; gamma = 1;
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select.
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -247,23 +238,20 @@ def Condred(data, labels, n_select):
 
 def DISR(data, labels, n_select):
   '''
-    DISR(data, labels, n_select)
-
     This function implements the double input symmetrical relevance
     feature selection algorithm. 
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select. (REQUIRED)
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -301,23 +289,20 @@ def DISR(data, labels, n_select):
 
 def ICAP(data, labels, n_select):
   '''
-    ICAP(data, labels, n_select)
-
     This function implements the interaction capping feature 
     selection algorithm. 
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select. (REQUIRED)
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -356,23 +341,20 @@ def ICAP(data, labels, n_select):
 
 def JMI(data, labels, n_select):
   '''
-    JMI(data, labels, n_select)
-
     This function implements the joint mutual information feature
     selection algorithm. 
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select. (REQUIRED)
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -409,23 +391,20 @@ def JMI(data, labels, n_select):
 
 def MIFS(data, labels, n_select):
   '''
-    MIFS(data, labels, n_select)
-
     This function implements the MIFS algorithm.
     beta = 1; gamma = 0;
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select. (REQUIRED)
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
 
   return BetaGamma(data, labels, n_select, beta=0.0, gamma=0.0)
@@ -433,23 +412,20 @@ def MIFS(data, labels, n_select):
 
 def MIM(data, labels, n_select):
   '''
-    MIM(data, labels, n_select)
-
     This function implements the MIM algorithm.
     beta = 0; gamma = 0;
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select. (REQUIRED)
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -459,23 +435,20 @@ def MIM(data, labels, n_select):
 
 def mRMR(data, labels, n_select):
   '''
-    mRMR(data, labels, n_select)
-
     This funciton implements the max-relevance min-redundancy feature
     selection algorithm. 
 
-    Input 
-      :data - data in a Numpy array such that len(data) = 
+    @param data: data in a Numpy array such that len(data) = 
         n_observations, and len(data.transpose()) = n_features
-        (REQUIRED)
-      :labels - labels represented in a numpy list with 
+    @type data: ndarray
+    @param labels: labels represented in a numpy list with 
         n_observations as the number of elements. That is 
         len(labels) = len(data) = n_observations.
-        (REQUIRED)
-      :n_select - number of features to select. (REQUIRED)
-    Output 
-      :selected_features - returns a list containing the features
-        in the order they were selected. 
+    @type labels: ndarray
+    @param n_select: number of features to select. (REQUIRED)
+    @type n_select: integer
+    @return: the features in the order they were selected. 
+    @rtype: list
   '''
   data, labels = check_data(data, labels)
 
@@ -510,20 +483,16 @@ def mRMR(data, labels, n_select):
 
 def check_data(data, labels):
   '''
-    check_data(data, labels)
-
     Check dimensions of the data and the labels.  Raise and exception
     if there is a problem.
 
     Data and Labels are automatically cast as doubles before calling the 
     feature selection functions
 
-    Input
-      :data
-      :labels
-    Output
-      :data
-      :labels
+    @param data: the data 
+    @param labels: the labels
+    @return (data, labels): ndarray of floats
+    @rtype: tuple
   '''
 
   if isinstance(data, np.ndarray) is False:
