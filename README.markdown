@@ -50,7 +50,7 @@ data set. The image data set was collected from the digits example in
 the Scikits-Learn toolbox.
 
 ## Documentation
-We have documentation for each of the functions setup available [here](http://mutantturkey.github.com/PyFeast/feast-module.html)
+We have documentation for each of the functions available [here](http://mutantturkey.github.com/PyFeast/feast-module.html)
 
 ## References
 * [FEAST](http://www.cs.man.ac.uk/~gbrown/fstoolbox/) - The Feature Selection Toolbox  
