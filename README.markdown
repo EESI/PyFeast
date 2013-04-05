@@ -49,6 +49,9 @@ See test/test.py for an example with uniform data and an image
 data set. The image data set was collected from the digits example in 
 the Scikits-Learn toolbox.
 
+## Documentation
+We have documentation for each of the functions setup available [here](http://mutantturkey.github.com/PyFeast/feast-module.html)
+
 ## References
 * [FEAST](http://www.cs.man.ac.uk/~gbrown/fstoolbox/) - The Feature Selection Toolbox  
 * [Fizzy](http://www.kbase.us/developer-zone/api-documentation/fizzy-feature-selection-service/)  - A KBase Service for Feature Selection
