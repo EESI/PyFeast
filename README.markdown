@@ -10,7 +10,8 @@ to enable researchers to utilize these feature selection algorithms in Python
 was only natural.
 
 At Drexel University's [EESI Lab](http://www.ece.drexel.edu/gailr/EESI/), we are using PyFeast to create a feature
-selection tool for the Department of Energy's upcoming KBase platform.
+selection tool for the Department of Energy's upcoming KBase platform. We are also integrating a tool that utilizes
+PyFeast as a script for Qiime users: [Qiime Fizzy Branch](https://github.com/EESI/FizzyQIIME)
 
 ## Requirements
 In order to use the feast module, you will need the following dependencies
@@ -48,6 +49,9 @@ Install our PyFeast module:
 See test/test.py for an example with uniform data and an image
 data set. The image data set was collected from the digits example in 
 the Scikits-Learn toolbox.
+
+## Documentation
+We have documentation for each of the functions available [here](http://mutantturkey.github.com/PyFeast/feast-module.html)
 
 ## References
 * [FEAST](http://www.cs.man.ac.uk/~gbrown/fstoolbox/) - The Feature Selection Toolbox  
