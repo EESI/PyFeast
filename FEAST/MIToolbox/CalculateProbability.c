@@ -49,20 +49,30 @@ JointProbabilityState calculateJointProbability(double *firstVector, double *sec
   double length = vectorLength;
   JointProbabilityState state;
 
-  firstNormalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
-  secondNormalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
+  firstNormalisedVector = CALLOC_FUNC(vectorLength,sizeof(int));
+  secondNormalisedVector = CALLOC_FUNC(vectorLength,sizeof(int));
   
   firstNumStates = normaliseArray(firstVector,firstNormalisedVector,vectorLength);
   secondNumStates = normaliseArray(secondVector,secondNormalisedVector,vectorLength);
   jointNumStates = firstNumStates * secondNumStates;
   
-  firstStateCounts = (int *) CALLOC_FUNC(firstNumStates,sizeof(int));
-  secondStateCounts = (int *) CALLOC_FUNC(secondNumStates,sizeof(int));
-  jointStateCounts = (int *) CALLOC_FUNC(jointNumStates,sizeof(int));
+  firstStateCounts = CALLOC_FUNC(firstNumStates,sizeof(int));
+  secondStateCounts = CALLOC_FUNC(secondNumStates,sizeof(int));
+  jointStateCounts = CALLOC_FUNC(jointNumStates,sizeof(int));
   
-  firstStateProbs = (double *) CALLOC_FUNC(firstNumStates,sizeof(double));
-  secondStateProbs = (double *) CALLOC_FUNC(secondNumStates,sizeof(double));
-  jointStateProbs = (double *) CALLOC_FUNC(jointNumStates,sizeof(double));
+  firstStateProbs = CALLOC_FUNC(firstNumStates,sizeof(double));
+  secondStateProbs =CALLOC_FUNC(secondNumStates,sizeof(double));
+  jointStateProbs = CALLOC_FUNC(jointNumStates,sizeof(double));
+
+	if(firstNormalisedVector == NULL || secondNormalisedVector == NULL ||
+		 firstStateCounts ==	 NULL || secondStateCounts == NULL || jointStateCounts == NULL ||
+		 firstStateProbs == NULL || secondStateProbs == NULL || jointStateProbs == NULL) {
+			
+			fprintf(stderr, "could not allocate enough memory");
+			exit(EXIT_FAILURE);
+
+		 }
+
     
   /* optimised version, less numerically stable
   double fractionalState = 1.0 / vectorLength;
