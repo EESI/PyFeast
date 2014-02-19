@@ -35,6 +35,7 @@
 #include "CalculateProbability.h"
 #include "Entropy.h"
 #include "MutualInformation.h"
+#include "util.h"
 
 double calculateMutualInformation(double *dataVector, double *targetVector, int vectorLength)
 {
@@ -76,7 +77,7 @@ double calculateConditionalMutualInformation(double *dataVector, double *targetV
 {
   double mutualInformation = 0.0;
   double firstCondition, secondCondition;
-  double *mergedVector = (double *) CALLOC_FUNC(vectorLength,sizeof(double));
+  double *mergedVector = safe_calloc(vectorLength,sizeof(double));
   
   mergeArrays(targetVector,conditionVector,mergedVector,vectorLength);
   

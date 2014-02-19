@@ -39,15 +39,14 @@
   #define C_IMPLEMENTATION
   #include <stdio.h>
   #include <stdlib.h>
-  #define CALLOC_FUNC calloc
+  #define UNSAFE_CALLOC_FUNC calloc
   #define FREE_FUNC free
 #else
   #define MEX_IMPLEMENTATION
   #include "mex.h"
-  #define CALLOC_FUNC mxCalloc
+  #define UNSAFE_CALLOC_FUNC mxCalloc
   #define FREE_FUNC mxFree
   #define printf mexPrintf /*for Octave-3.2*/
 #endif
 
 #endif
-

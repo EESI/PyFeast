@@ -33,6 +33,7 @@
 #include "ArrayOperations.h"
 #include "CalculateProbability.h"
 #include "Entropy.h"
+#include "util.h"
 
 double calculateRenyiEntropy(double alpha, double *dataVector, int vectorLength)
 {
@@ -111,8 +112,8 @@ double calcCondRenyiEnt(double alpha, double *dataVector, double *conditionVecto
   ** first generate the seperate variables
   */
   
-  double *seperateVectors = (double *) CALLOC_FUNC(uniqueInCondVector*vectorLength,sizeof(double));
-  int *seperateVectorCount = (int *) CALLOC_FUNC(uniqueInCondVector,sizeof(int));
+  double *seperateVectors = safe_calloc(uniqueInCondVector*vectorLength,sizeof(double));
+  int *seperateVectorCount = safe_calloc(uniqueInCondVector,sizeof(int));
   double seperateVectorProb = 0.0;
   int i,j;
   double entropy = 0.0;
@@ -121,7 +122,7 @@ double calcCondRenyiEnt(double alpha, double *dataVector, double *conditionVecto
   double tempEntropy;
   ProbabilityState state;
   
-  double **seperateVectors2D = (double **) CALLOC_FUNC(uniqueInCondVector,sizeof(double*));
+  double **seperateVectors2D = safe_calloc(uniqueInCondVector,sizeof(double*));
   for(j=0; j < uniqueInCondVector; j++)
     seperateVectors2D[j] = seperateVectors + (int)j*vectorLength;
   

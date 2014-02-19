@@ -30,6 +30,7 @@
 
 #include "MIToolbox.h"
 #include "ArrayOperations.h"
+#include "util.h"
 
 void printDoubleVector(double *vector, int vectorLength)
 {
@@ -53,7 +54,7 @@ void printIntVector(int *vector, int vectorLength)
 int numberOfUniqueValues(double *featureVector, int vectorLength)
 {
   int uniqueValues = 0;
-  double *valuesArray = (double *) CALLOC_FUNC(vectorLength,sizeof(double));
+  double *valuesArray = safe_calloc(vectorLength,sizeof(double));
   
   int found = 0;
   int j = 0;
@@ -153,8 +154,8 @@ int mergeArrays(double *firstVector, double *secondVector, double *outputVector,
   int stateCount;
   int curIndex;
   
-  firstNormalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
-  secondNormalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
+  firstNormalisedVector = safe_calloc(vectorLength,sizeof(int));
+  secondNormalisedVector = safe_calloc(vectorLength,sizeof(int));
 
   firstNumStates = normaliseArray(firstVector,firstNormalisedVector,vectorLength);
   secondNumStates = normaliseArray(secondVector,secondNormalisedVector,vectorLength);
@@ -163,7 +164,7 @@ int mergeArrays(double *firstVector, double *secondVector, double *outputVector,
   ** printVector(firstNormalisedVector,vectorLength);
   ** printVector(secondNormalisedVector,vectorLength);
   */
-  stateMap = (int *) CALLOC_FUNC(firstNumStates*secondNumStates,sizeof(int));
+  stateMap = safe_calloc(firstNumStates*secondNumStates,sizeof(int));
   stateCount = 1;
   for (i = 0; i < vectorLength; i++)
   {
@@ -196,8 +197,8 @@ int mergeArraysArities(double *firstVector, int numFirstStates, double *secondVe
   int totalStates;
   int firstStateCheck, secondStateCheck;
   
-  firstNormalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
-  secondNormalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
+  firstNormalisedVector = safe_calloc(vectorLength,sizeof(int));
+  secondNormalisedVector = safe_calloc(vectorLength,sizeof(int));
 
   firstStateCheck = normaliseArray(firstVector,firstNormalisedVector,vectorLength);
   secondStateCheck = normaliseArray(secondVector,secondNormalisedVector,vectorLength);
@@ -242,7 +243,7 @@ int mergeMultipleArrays(double *inputMatrix, double *outputVector, int matrixWid
   }
   else
   {
-    normalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
+    normalisedVector = safe_calloc(vectorLength,sizeof(int));
     currentNumStates = normaliseArray(inputMatrix,normalisedVector,vectorLength);
   	for (i = 0; i < vectorLength; i++)
   	{
@@ -274,7 +275,7 @@ int mergeMultipleArraysArities(double *inputMatrix, double *outputVector, int ma
   }
   else
   { 
-    normalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
+    normalisedVector = safe_calloc(vectorLength,sizeof(int));
     currentNumStates = normaliseArray(inputMatrix,normalisedVector,vectorLength);
   	for (i = 0; i < vectorLength; i++)
   	{

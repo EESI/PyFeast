@@ -31,6 +31,7 @@
 #include "MIToolbox.h"
 #include "ArrayOperations.h"
 #include "CalculateProbability.h"
+#include "util.h"
 
 JointProbabilityState calculateJointProbability(double *firstVector, double *secondVector, int vectorLength)
 {
@@ -49,20 +50,20 @@ JointProbabilityState calculateJointProbability(double *firstVector, double *sec
   double length = vectorLength;
   JointProbabilityState state;
 
-  firstNormalisedVector = CALLOC_FUNC(vectorLength,sizeof(int));
-  secondNormalisedVector = CALLOC_FUNC(vectorLength,sizeof(int));
+  firstNormalisedVector = safe_calloc(vectorLength,sizeof(int));
+  secondNormalisedVector = safe_calloc(vectorLength,sizeof(int));
   
   firstNumStates = normaliseArray(firstVector,firstNormalisedVector,vectorLength);
   secondNumStates = normaliseArray(secondVector,secondNormalisedVector,vectorLength);
   jointNumStates = firstNumStates * secondNumStates;
   
-  firstStateCounts = CALLOC_FUNC(firstNumStates,sizeof(int));
-  secondStateCounts = CALLOC_FUNC(secondNumStates,sizeof(int));
-  jointStateCounts = CALLOC_FUNC(jointNumStates,sizeof(int));
+  firstStateCounts = safe_calloc(firstNumStates,sizeof(int));
+  secondStateCounts = safe_calloc(secondNumStates,sizeof(int));
+  jointStateCounts = safe_calloc(jointNumStates,sizeof(int));
   
-  firstStateProbs = CALLOC_FUNC(firstNumStates,sizeof(double));
-  secondStateProbs =CALLOC_FUNC(secondNumStates,sizeof(double));
-  jointStateProbs = CALLOC_FUNC(jointNumStates,sizeof(double));
+  firstStateProbs = safe_calloc(firstNumStates,sizeof(double));
+  secondStateProbs =safe_calloc(secondNumStates,sizeof(double));
+  jointStateProbs = safe_calloc(jointNumStates,sizeof(double));
 
 	if(firstNormalisedVector == NULL || secondNormalisedVector == NULL ||
 		 firstStateCounts ==	 NULL || secondStateCounts == NULL || jointStateCounts == NULL ||
@@ -153,12 +154,12 @@ ProbabilityState calculateProbability(double *dataVector, int vectorLength)
   int i;
   double length = vectorLength;
 
-  normalisedVector = (int *) CALLOC_FUNC(vectorLength,sizeof(int));
+  normalisedVector = safe_calloc(vectorLength,sizeof(int));
   
   numStates = normaliseArray(dataVector,normalisedVector,vectorLength);
   
-  stateCounts = (int *) CALLOC_FUNC(numStates,sizeof(int));
-  stateProbs = (double *) CALLOC_FUNC(numStates,sizeof(double));
+  stateCounts = safe_calloc(numStates,sizeof(int));
+  stateProbs = safe_calloc(numStates,sizeof(double));
   
   /* optimised version, may have floating point problems 
   fractionalState = 1.0 / vectorLength;

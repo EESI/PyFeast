@@ -25,10 +25,14 @@ PREFIX = /usr
 CXXFLAGS = -O3 -fPIC
 COMPILER = gcc
 objects = ArrayOperations.o CalculateProbability.o Entropy.o \
-          MutualInformation.o RenyiEntropy.o RenyiMutualInformation.o
+          MutualInformation.o RenyiEntropy.o RenyiMutualInformation.o util.o
           
 libMIToolbox.so : $(objects)
 	$(COMPILER) $(CXXFLAGS) -shared -o libMIToolbox.so $(objects)
+
+
+util.o: util.c
+	$(COMPILER) $(CXXFLAGS) -DCOMPILE_C -c util.c
 
 RenyiMutualInformation.o: RenyiMutualInformation.c MIToolbox.h ArrayOperations.h \
  CalculateProbability.h RenyiEntropy.h
