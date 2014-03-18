@@ -19,28 +19,10 @@ In order to use the feast module, you will need the following dependencies
 * Python 2.7
 * Numpy
 * Linux or OS X 
+* [FEAST](https://github.com/Craigacp/FEAST)
+* [MIToolbox](https://github.com/Craigacp/MIToolbox)
 
 ## Installation
-To install the FEAST interface, you'll need to build and install the FEAST
-libraries first, and then install python.
-
-Make MIToolbox and install it:
-
-    cd FEAST/MIToolbox
-    make
-    sudo make install
-
-Make FSToolbox and install it:
-
-    cd FEAST/FSToolbox
-    make
-    sudo make install
-
-Run ldconfig to update your library cache:
-    
-    sudo ldconfig
-
-Install our PyFeast module:
 
     python ./setup.py build
     sudo python ./setup.py install
@@ -56,5 +38,4 @@ We have documentation for each of the functions available [here](http://mutanttu
 ## References
 * [FEAST](http://www.cs.man.ac.uk/~gbrown/fstoolbox/) - The Feature Selection Toolbox  
 * [Fizzy](http://www.kbase.us/developer-zone/api-documentation/fizzy-feature-selection-service/)  - A KBase Service for Feature Selection
-* [Conditional Likelihood Maximisation: A Unifying Framework for Information Theoretic Feature Selection]
-(http://jmlr.csail.mit.edu/papers/v13/brown12a.html) 
+* [Conditional Likelihood Maximisation: A Unifying Framework for Information Theoretic Feature Selection](http://jmlr.csail.mit.edu/papers/v13/brown12a.html) 
