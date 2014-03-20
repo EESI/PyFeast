@@ -1,6 +1,9 @@
 # PyFeast
 Python bindings to the FEAST Feature Selection Toolbox.
 
+## Download
+
+[Downlaod Version 1.1](https://github.com/mutantturkey/PyFeast/releases/tag/v1.1)
 ## About PyFeast
 PyFeast is a interface for the FEAST feature selection toolbox, which was
 originally written in C with a interface to Matlab.
