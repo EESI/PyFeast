@@ -20,7 +20,7 @@ In order to use the feast module, you will need the following dependencies
 * Numpy
 * Linux or OS X 
 * [MIToolbox](https://github.com/Craigacp/MIToolbox)
-* [FEAST](https://github.com/Craigacp/FEAST) - Make sure that `MIM.o` is compilde in the `Makefile`.
+* [FEAST](https://github.com/Craigacp/FEAST) - Make sure that `MIM.o` is compiled in the `Makefile`.
 
 ## Installation
 
