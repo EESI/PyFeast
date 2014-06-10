@@ -66,7 +66,7 @@ elif data_source == 'digits':
 n_observations = len(data)					# number of samples in the data set
 n_features = len(data.transpose())	# number of features in the data set
 n_select = 15												# how many features to select
-method = 'JMI'											# feature selection algorithm
+method = 'MIM'											# feature selection algorithm
 
 
 print '---> Information'
@@ -147,6 +147,16 @@ if check_result(sf, n_relevant) == True:
 else:
 	print '          mRMR failed!'
 
+#################################################################
+#################################################################
+print '       Running MIM...'
+sf = MIM(data, labels, n_select)
+if check_result(sf, n_relevant) == True:
+	print '          MIM passed!'
+else:
+	print '          MIM failed!'
+
+p
 print '---> Done unit tests!'
 
 
