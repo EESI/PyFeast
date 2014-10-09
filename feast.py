@@ -21,11 +21,7 @@ __status__ = "Release"
 import numpy as np
 import ctypes as c
 
-try:
-  libFSToolbox = c.CDLL("libFSToolbox.so"); 
-except:
-  raise Exception("Error: could not load libFSToolbox.so")
-
+libFSToolbox = c.CDLL("libFSToolbox.so"); 
 
 def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
   """
