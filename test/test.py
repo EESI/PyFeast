@@ -85,7 +85,6 @@ if check_result(sf, n_relevant) == True:
 	print '          BetaGamma passed!'
 else:
 	print '          BetaGamma failed!'
-print sf 
 
 #################################################################
 #################################################################
