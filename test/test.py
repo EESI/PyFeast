@@ -25,7 +25,7 @@ def read_digits(fname='digit.txt'):
 	data = []
 	for line in fw: 
 		data.append( [float(x) for x in line] )
-	data = np.array(data)
+	data = np.array(data, order="F")
 	labels = data[:,len(data.transpose())-1]
 	data = data[:,:len(data.transpose())-1]
 	return data, labels
@@ -47,7 +47,6 @@ def uniform_data(n_observations = 1000, n_features = 50, n_relevant = 5):
 		else:
 			labels[m] = 2
 	data = data.transpose()
-	
 	return data, labels
 
 
@@ -86,7 +85,7 @@ if check_result(sf, n_relevant) == True:
 	print '          BetaGamma passed!'
 else:
 	print '          BetaGamma failed!'
-
+print sf 
 
 #################################################################
 #################################################################
@@ -156,7 +155,6 @@ if check_result(sf, n_relevant) == True:
 else:
 	print '          MIM failed!'
 
-p
 print '---> Done unit tests!'
 
 
