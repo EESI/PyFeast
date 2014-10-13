@@ -33,7 +33,7 @@ In order to use the feast module, you will need the following dependencies
 ## Demonstration
 See test/test.py for an example with uniform data and an image
 data set. The image data set was collected from the digits example in 
-the Scikits-Learn toolbox.
+the Scikits-Learn toolbox. Make sure that if you are loading the data from a file and converting the data to a `numpy` array that you set `order="F"`. This is *very* important. 
 
 ## Documentation
 We have documentation for each of the functions available [here](http://mutantturkey.github.com/PyFeast/feast-module.html)
