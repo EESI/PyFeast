@@ -467,5 +467,5 @@ def check_data(data, labels):
 
   if len(data) != len(labels):
     raise Exception("data and labels must be the same length")
-  
-  return 1.0*data, 1.0*labels
+
+  return 1.0*np.array(data, order="F"), 1.0*np.array(labels, order="F")
