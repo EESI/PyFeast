@@ -25,7 +25,7 @@ def read_digits(fname='digit.txt'):
 	data = []
 	for line in fw: 
 		data.append( [float(x) for x in line] )
-	data = np.array(data)
+	data = np.array(data, order="F")
 	labels = data[:,len(data.transpose())-1]
 	data = data[:,:len(data.transpose())-1]
 	return data, labels
@@ -47,7 +47,6 @@ def uniform_data(n_observations = 1000, n_features = 50, n_relevant = 5):
 		else:
 			labels[m] = 2
 	data = data.transpose()
-	
 	return data, labels
 
 
@@ -66,7 +65,7 @@ elif data_source == 'digits':
 n_observations = len(data)					# number of samples in the data set
 n_features = len(data.transpose())	# number of features in the data set
 n_select = 15												# how many features to select
-method = 'JMI'											# feature selection algorithm
+method = 'MIM'											# feature selection algorithm
 
 
 print '---> Information'
@@ -86,7 +85,6 @@ if check_result(sf, n_relevant) == True:
 	print '          BetaGamma passed!'
 else:
 	print '          BetaGamma failed!'
-
 
 #################################################################
 #################################################################
@@ -146,6 +144,15 @@ if check_result(sf, n_relevant) == True:
 	print '          mRMR passed!'
 else:
 	print '          mRMR failed!'
+
+#################################################################
+#################################################################
+print '       Running MIM...'
+sf = MIM(data, labels, n_select)
+if check_result(sf, n_relevant) == True:
+	print '          MIM passed!'
+else:
+	print '          MIM failed!'
 
 print '---> Done unit tests!'
 

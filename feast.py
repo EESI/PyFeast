@@ -1,4 +1,4 @@
-'''
+"""
   The FEAST module provides an interface between the C-library
   for feature selection to Python. 
 
@@ -8,7 +8,7 @@
       theoretic feature selection," Journal of Machine Learning 
       Research, vol. 13, pp. 27-66, 2012.
 
-'''
+"""
 __author__ = "Calvin Morrison"
 __copyright__ = "Copyright 2013, EESI Laboratory"
 __credits__ = ["Calvin Morrison", "Gregory Ditzler"]
@@ -21,14 +21,10 @@ __status__ = "Release"
 import numpy as np
 import ctypes as c
 
-try:
-  libFSToolbox = c.CDLL("libFSToolbox.so"); 
-except:
-  raise Exception("Error: could not load libFSToolbox.so")
-
+libFSToolbox = c.CDLL("libFSToolbox.so"); 
 
 def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
-  '''
+  """
     This algorithm implements conditional mutual information 
     feature select, such that beta and gamma control the 
     weight attached to the redundant mutual and conditional
@@ -52,7 +48,7 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
       @type gamma: float between 0 and 1.0 
       @return: features in the order they were selected. 
       @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -77,20 +73,14 @@ def BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0):
                    c_gamma
                    )
 
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
-
+    selected_features.append(i)
   return selected_features
 
 
-
 def CIFE(data, labels, n_select):
-  '''
+  """
     This function implements the Condred feature selection algorithm.
     beta = 1; gamma = 1;
 
@@ -105,15 +95,11 @@ def CIFE(data, labels, n_select):
     @type n_select: integer
     @return selected_features: features in the order they were selected. 
     @rtype: list
-  '''
-
+  """
   return BetaGamma(data, labels, n_select, beta=1.0, gamma=1.0)
 
-
-
-
 def CMIM(data, labels, n_select):
-  '''
+  """
     This function implements the conditional mutual information
     maximization feature selection algorithm. Note that this 
     implementation does not allow for the weighting of the 
@@ -130,7 +116,7 @@ def CMIM(data, labels, n_select):
     @type n_select: integer
     @return: features in the order that they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -151,21 +137,16 @@ def CMIM(data, labels, n_select):
                    output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
-  
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
+    selected_features.append(i)
 
   return selected_features
 
 
 
 def CondMI(data, labels, n_select):
-  '''
+  """
     This function implements the conditional mutual information
     maximization feature selection algorithm. 
 
@@ -180,7 +161,7 @@ def CondMI(data, labels, n_select):
     @type n_select: integer
     @return: features in the order they were selected. 
     @rtype list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -200,21 +181,16 @@ def CondMI(data, labels, n_select):
                    labels.ctypes.data_as(c.POINTER(c.c_double)),
                    output.ctypes.data_as(c.POINTER(c.c_double))
                    )
-
   
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
+    selected_features.append(i)
 
   return selected_features
 
 
 def Condred(data, labels, n_select):
-  '''
+  """
     This function implements the Condred feature selection algorithm.
     beta = 0; gamma = 1;
 
@@ -229,15 +205,14 @@ def Condred(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
-
   return BetaGamma(data, labels, n_select, beta=0.0, gamma=1.0)
 
 
 
 def DISR(data, labels, n_select):
-  '''
+  """
     This function implements the double input symmetrical relevance
     feature selection algorithm. 
 
@@ -252,7 +227,7 @@ def DISR(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -272,23 +247,15 @@ def DISR(data, labels, n_select):
                    labels.ctypes.data_as(c.POINTER(c.c_double)),
                    output.ctypes.data_as(c.POINTER(c.c_double))
                    )
-
   
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
+    selected_features.append(i)
 
   return selected_features
 
-
-
-
 def ICAP(data, labels, n_select):
-  '''
+  """
     This function implements the interaction capping feature 
     selection algorithm. 
 
@@ -303,7 +270,7 @@ def ICAP(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -323,24 +290,15 @@ def ICAP(data, labels, n_select):
                    labels.ctypes.data_as(c.POINTER(c.c_double)),
                    output.ctypes.data_as(c.POINTER(c.c_double))
                    )
-
   
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
+    selected_features.append(i)
 
   return selected_features
 
-
-
-
-
 def JMI(data, labels, n_select):
-  '''
+  """
     This function implements the joint mutual information feature
     selection algorithm. 
 
@@ -355,7 +313,7 @@ def JMI(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -376,21 +334,15 @@ def JMI(data, labels, n_select):
                    output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
-  
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
-
+    selected_features.append(i)
   return selected_features
 
 
 
 def MIFS(data, labels, n_select):
-  '''
+  """
     This function implements the MIFS algorithm.
     beta = 1; gamma = 0;
 
@@ -405,13 +357,12 @@ def MIFS(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
-
+  """
   return BetaGamma(data, labels, n_select, beta=0.0, gamma=0.0)
 
 
 def MIM(data, labels, n_select):
-  '''
+  """
     This function implements the MIM algorithm.
     beta = 0; gamma = 0;
 
@@ -426,15 +377,35 @@ def MIM(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
+  
+  # python values
+  n_observations, n_features = data.shape
+  output = np.zeros(n_select)
 
-  return BetaGamma(data, labels, n_select, beta=0.0, gamma=0.0)
+  # cast as C types
+  c_n_observations = c.c_int(n_observations)
+  c_n_select = c.c_int(n_select)
+  c_n_features = c.c_int(n_features)
 
+  libFSToolbox.MIM.restype = c.POINTER(c.c_double * n_select)
+  features = libFSToolbox.MIM(c_n_select,
+                   c_n_observations,
+                   c_n_features, 
+                   data.ctypes.data_as(c.POINTER(c.c_double)),
+                   labels.ctypes.data_as(c.POINTER(c.c_double)),
+                   output.ctypes.data_as(c.POINTER(c.c_double))
+                   )
+  
+  selected_features = []
+  for i in features.contents:
+    selected_features.append(i)
+  return selected_features
 
 
 def mRMR(data, labels, n_select):
-  '''
+  """
     This funciton implements the max-relevance min-redundancy feature
     selection algorithm. 
 
@@ -449,7 +420,7 @@ def mRMR(data, labels, n_select):
     @type n_select: integer
     @return: the features in the order they were selected. 
     @rtype: list
-  '''
+  """
   data, labels = check_data(data, labels)
 
   # python values
@@ -470,19 +441,13 @@ def mRMR(data, labels, n_select):
                    output.ctypes.data_as(c.POINTER(c.c_double))
                    )
 
-  
-  # turn our output into a list
   selected_features = []
   for i in features.contents:
-    # recall that feast was implemented with Matlab in mind, so the 
-    # authors assumed the indexing started a one; however, in Python 
-    # the indexing starts at zero. 
-    selected_features.append(i - 1)
-
+    selected_features.append(i)
   return selected_features
 
 def check_data(data, labels):
-  '''
+  """
     Check dimensions of the data and the labels.  Raise and exception
     if there is a problem.
 
@@ -493,7 +458,7 @@ def check_data(data, labels):
     @param labels: the labels
     @return (data, labels): ndarray of floats
     @rtype: tuple
-  '''
+  """
 
   if isinstance(data, np.ndarray) is False:
     raise Exception("data must be an numpy ndarray.")
@@ -502,5 +467,5 @@ def check_data(data, labels):
 
   if len(data) != len(labels):
     raise Exception("data and labels must be the same length")
-  
-  return 1.0*data, 1.0*labels
+
+  return 1.0*np.array(data, order="F"), 1.0*np.array(labels, order="F")
