@@ -1,5 +1,5 @@
 #!/usr/bin/env python 
-from feast import *
+from feast import MIM,mRMR,JMI,ICAP,CondMI,DISR,CMIM,BetaGamma
 import numpy as np
 import csv
 
@@ -80,7 +80,8 @@ print '---> Running unit tests on FEAST 4 Python... '
 #################################################################
 #################################################################
 print '       Running BetaGamma... '
-sf = BetaGamma(data, labels, n_select, beta=0.5, gamma=0.5)
+mdl = BetaGamma(n_select, beta=0.5, gamma=0.5)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          BetaGamma passed!'
 else:
@@ -89,17 +90,19 @@ else:
 #################################################################
 #################################################################
 print '       Running CMIM... '
-sf = CMIM(data, labels, n_select)
+mdl = CMIM(n_select)
+sf = mdl.fit(data,labels)
 if check_result(sf, n_relevant) == True:
 	print '          CMIM passed!'
 else:
 	print '          CMIM failed!'
 
 
-#################################################################
-#################################################################
+##################################################################
+##################################################################
 print '       Running CondMI... '
-sf = CondMI(data, labels, n_select)
+mdl = CondMI(n_select)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          CondMI passed!'
 else:
@@ -109,7 +112,8 @@ else:
 #################################################################
 #################################################################
 print '       Running DISR... '
-sf = DISR(data, labels, n_select)
+mdl = DISR(n_select)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          DISR passed!'
 else:
@@ -119,7 +123,8 @@ else:
 #################################################################
 #################################################################
 print '       Running ICAP... '
-sf = ICAP(data, labels, n_select)
+mdl = ICAP(n_select)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          ICAP passed!'
 else:
@@ -129,17 +134,18 @@ else:
 #################################################################
 #################################################################
 print '       Running JMI... '
-sf = JMI(data, labels, n_select)
+mdl = JMI(n_select)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          JMI passed!'
 else:
 	print '          JMI failed!'
 
-
 #################################################################
 #################################################################
 print '       Running mRMR... '
-sf = mRMR(data, labels, n_select)
+mdl = mRMR(n_select)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          mRMR passed!'
 else:
@@ -148,7 +154,8 @@ else:
 #################################################################
 #################################################################
 print '       Running MIM...'
-sf = MIM(data, labels, n_select)
+mdl = MIM(n_select)
+sf = mdl.fit(data, labels)
 if check_result(sf, n_relevant) == True:
 	print '          MIM passed!'
 else:

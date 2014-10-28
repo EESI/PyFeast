@@ -1,0 +1,10 @@
+# directories
+tmp/
+feast.py.backup
+
+# python 
+*.pyc
+
+# editors 
+*.swp
+
